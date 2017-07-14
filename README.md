@@ -1,0 +1,5 @@
+# Collect Plugin for Puppet
+
+
+
+
