@@ -1,6 +1,6 @@
 Summary:   collectd plugin for puppet last run
 Name:      collectd-puppet
-Version:   0.0.1
+Version:   0.1.0
 Release:   1%{?dist}
 BuildArch: noarch
 Source:    %{name}-%{version}.tgz
@@ -30,10 +30,10 @@ install -m 0644 puppet_types.db %{buildroot}/usr/share/collectd/puppet_types.db
 %dir /usr/libexec/sensors
 /usr/libexec/sensors/puppet.py*
 /usr/share/collectd/puppet_types.db
-%doc README.md
+%doc README
 
 %changelog
-* Fri Jul 14 2017 Steve Traylen <steve.traylen@cern.ch> 0.0.1-1
+* Fri Jul 14 2017 Steve Traylen <steve.traylen@cern.ch> 0.1.0-1
 - Initial Release
 
 
