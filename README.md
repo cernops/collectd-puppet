@@ -1,4 +1,4 @@
-# Collect Plugin for Puppet
+# Collectd Plugin for Puppet
 
 ## Configuration
 
