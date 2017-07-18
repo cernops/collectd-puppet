@@ -1,5 +1,8 @@
 # Changelog
 
+## 2017-07-14 - Release 0.2.0
+* If compile failiure there is no resources metric.
+
 ## 2017-07-14 - Release 0.1.0
 
 * First Release
