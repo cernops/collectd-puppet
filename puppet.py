@@ -42,32 +42,35 @@ def read_func():
         except yaml.YAMLError as exc:
             print exc
 
-    times = {
-        'last_run':         data['time']['last_run'],
-        'since_last_run':   int(time.time()) - data['time']['last_run'],
-        'total':            data['time']['total'],
-        'config_retrieval': data['time']['config_retrieval'],
-    }
+    # If a compile eorr the time and config_retrievial are not defined.
+    # Would be better to return a NaN or None or something.
+    times = [
+        data['time']['last_run'],
+        int(time.time()) - data['time']['last_run'],
+        data['time']['total'] if 'total' in data['time'] else 0.0,
+        data['time']['config_retrieval'] if 'config_retrieval' in data['time'] else 0.0,
+    ]
     val = collectd.Values(plugin='puppet',)
     val.type = 'puppet_time'
-    val.values = list(times.values())
+    val.values = times
     val.dispatch()
 
-    resources = {
-        'total':              data['resources']['total'],
-        'changed':            data['resources']['changed'],
-        'corrective_change':  data['resources']['corrective_change'],
-        'failed':             data['resources']['failed'],
-        'failed_to_restart':  data['resources']['failed_to_restart'],
-        'out_of_sync':        data['resources']['out_of_sync'],
-        'restarted':          data['resources']['restarted'],
-        'scheduled':          data['resources']['scheduled'],
-        'skipped':            data['resources']['skipped'],
-    }
-    val = collectd.Values(plugin='puppet',)
-    val.type = 'puppet_resources'
-    val.values = list(resources.values())
-    val.dispatch()
+    if 'resources' in data:
+        resources = [
+            data['resources']['total'],
+            data['resources']['changed'],
+            data['resources']['corrective_change'],
+            data['resources']['failed'],
+            data['resources']['failed_to_restart'],
+            data['resources']['out_of_sync'],
+            data['resources']['restarted'],
+            data['resources']['scheduled'],
+            data['resources']['skipped'],
+        ]
+        val = collectd.Values(plugin='puppet',)
+        val.type = 'puppet_resources'
+        val.values = resources
+        val.dispatch()
 
 collectd.register_config(config_func)
 collectd.register_read(read_func)
