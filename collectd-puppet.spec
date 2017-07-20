@@ -1,6 +1,6 @@
 Summary:   collectd plugin for puppet last run
 Name:      collectd-puppet
-Version:   0.2.0
+Version:   0.2.0a
 Release:   1%{?dist}
 BuildArch: noarch
 Source:    %{name}-%{version}.tgz
