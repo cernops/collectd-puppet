@@ -21,9 +21,10 @@ TypesDB "/usr/share/collectd/puppet_types.db"
 The plugin parses `/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml`
 and reports two collectd types.
 
-### puppet_resources
+### puppet_run
 
 A count of numbers of resources
+and duration of agent run and config_retrieval
 
 * total
 * changed
@@ -34,6 +35,9 @@ A count of numbers of resources
 * restarted
 * scheduled
 * skipped
+* time
+* config_retrieval
+
 
 #### puppet_time
 
@@ -41,8 +45,6 @@ All in units of seconds
 
 * last_run   - epoch of last puppet run.
 * since_last_run
-* total
-* config_retrieval
 
 
 
