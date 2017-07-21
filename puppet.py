@@ -42,21 +42,22 @@ def read_func():
         except yaml.YAMLError as exc:
             print exc
 
-    # If a compile eorr the time and config_retrievial are not defined.
-    # Would be better to return a NaN or None or something.
+    # puppet_time type.
+    # This type is always populated, even on a compilation error
     times = [
         data['time']['last_run'],
         int(time.time()) - data['time']['last_run'],
-        data['time']['total'] if 'total' in data['time'] else 0.0,
-        data['time']['config_retrieval'] if 'config_retrieval' in data['time'] else 0.0,
     ]
     val = collectd.Values(plugin='puppet',)
     val.type = 'puppet_time'
     val.values = times
     val.dispatch()
 
+    # puppet_run type
+    # this type is not populated in certain cases, e.g compilation
+    # error.
     if 'resources' in data:
-        resources = [
+        run = [
             data['resources']['total'],
             data['resources']['changed'],
             data['resources']['corrective_change'],
@@ -66,10 +67,12 @@ def read_func():
             data['resources']['restarted'],
             data['resources']['scheduled'],
             data['resources']['skipped'],
+            data['time']['total'],
+            data['time']['config_retrieval'],
         ]
         val = collectd.Values(plugin='puppet',)
-        val.type = 'puppet_resources'
-        val.values = resources
+        val.type = 'puppet_run'
+        val.values = run
         val.dispatch()
 
 collectd.register_config(config_func)
