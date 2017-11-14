@@ -30,7 +30,7 @@ install -m 0644 puppet_types.db %{buildroot}/usr/share/collectd/puppet_types.db
 %dir /usr/libexec/sensors
 /usr/libexec/sensors/puppet.py*
 /usr/share/collectd/puppet_types.db
-%doc README
+%doc README.md
 
 %changelog
 * Fri Jul 21 2017 Steve Traylen <steve.traylen@cern.ch> 1.0.0-1
