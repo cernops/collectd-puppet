@@ -10,11 +10,13 @@ To configure with collectd
 </Plugin>
 """
 
+import os
 import time
 import collectd
 import yaml
 
 PATH = "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+STATE = "/var/lib/collectd/puppet.state"
 
 def config_func(config):
     """ accept configuration from collectd """
@@ -35,10 +37,21 @@ def config_func(config):
         collectd.info('puppet plugin: Using default path %s' % PATH)
 
 def read_func():
-    """ open yaml file and publish  """
+    """ open yaml file and publish if Puppet has run """
+    try:
+        last_polled = os.stat(STATE).st_mtime
+    except OSError:
+        last_polled = 0
+    last_puppet_run = os.stat(PATH).st_mtime
+
+    if last_polled >= last_puppet_run:
+        return
+
     with open(PATH, 'r') as stream:
         try:
             data = yaml.load(stream)
+            with open(STATE, 'a'):
+                os.utime(STATE, None)
         except yaml.YAMLError as exc:
             print exc
 
