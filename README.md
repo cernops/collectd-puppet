@@ -44,7 +44,6 @@ and duration of agent run and config_retrieval
 All in units of seconds
 
 * last_run   - epoch of last puppet run.
-* since_last_run
 
 
 
