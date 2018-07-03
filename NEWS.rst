@@ -1,6 +1,12 @@
 News
 ====
 
+2018-07-03 - Release 1.1.1
+--------------------------
+- Switch to using setup tools.
+- Don't send since_last_run, redundant.
+- Don't send any data if puppet has not run.
+
 2017-07-21 - Release 1.0.0
 --------------------------
 
