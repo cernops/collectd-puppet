@@ -6,7 +6,10 @@ To configure with collectd
 <Plugin "python">
   LogTraces true
   Interactive false
-  Import "puppet"
+  Import "collectd_puppet"
+  <Module "collectd_puppet">
+    path "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+  </Module>
 </Plugin>
 """
 
