@@ -1,6 +1,10 @@
 News
 ====
 
+2018-07-07 - Release 1.2.0
+--------------------------
+- Add a gauge to puppet_time flagging if the catalog compiled.
+
 2018-07-03 - Release 1.1.1
 --------------------------
 - Switch to using setup tools.
