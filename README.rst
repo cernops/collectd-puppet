@@ -53,4 +53,5 @@ puppet_time
 
 All in units of seconds
 
--  last_run - epoch of last puppet run.
+-  last_run - epoch of last puppet run (seconds).
+-  compiled - flag denoting if the catalog compiled (1 or 0).
