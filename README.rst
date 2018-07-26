@@ -55,3 +55,8 @@ All in units of seconds
 
 -  last_run - epoch of last puppet run (seconds).
 -  compiled - flag denoting if the catalog compiled (1 or 0).
+
+Development notes
+-----------------
+
+Don't forget to bump the ``schema_version`` if you modify the types.
