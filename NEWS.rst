@@ -1,6 +1,11 @@
 News
 ====
 
+2018-07-27 - Release 1.3.0
+--------------------------
+- A schema_version is now published as collectd metadata, set to 1 now.
+
+
 2018-07-07 - Release 1.2.0
 --------------------------
 - Add a gauge to puppet_time flagging if the catalog compiled.
