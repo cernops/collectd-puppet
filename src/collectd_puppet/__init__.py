@@ -21,6 +21,8 @@ import yaml
 PATH = "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
 STATE = "/var/lib/collectd/puppet.state"
 
+META = {'schema_version': 1}
+
 def config_func(config):
     """ accept configuration from collectd """
     path_set = False
@@ -66,6 +68,7 @@ def read_func():
     ]
     val = collectd.Values(plugin='puppet',)
     val.type = 'puppet_time'
+    val.meta = META
     val.values = times
     val.dispatch()
 
@@ -88,6 +91,7 @@ def read_func():
         ]
         val = collectd.Values(plugin='puppet',)
         val.type = 'puppet_run'
+        val.meta = META
         val.values = run
         val.dispatch()
 
