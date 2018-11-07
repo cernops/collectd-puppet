@@ -20,6 +20,7 @@ import yaml
 
 PATH = "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
 STATE = "/var/lib/collectd/puppet.state"
+MAX_RETENTION = 60*60*6
 
 META = {'schema_version': 1}
 
@@ -70,7 +71,7 @@ def read_func():
     val.type = 'puppet_time'
     val.meta = META
     val.values = times
-    val.dispatch()
+    val.dispatch(interval=MAX_RETENTION)
 
     # puppet_run type
     # this type is not populated in certain cases, e.g compilation
@@ -93,7 +94,7 @@ def read_func():
         val.type = 'puppet_run'
         val.meta = META
         val.values = run
-        val.dispatch()
+        val.dispatch(interval=MAX_RETENTION)
 
 collectd.register_config(config_func)
 collectd.register_read(read_func)
