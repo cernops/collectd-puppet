@@ -31,7 +31,7 @@ time Collectd polled. This is monitored using a state file located in
 it.
 
 puppet_run
-~~~~~~~~~
+~~~~~~~~~~
 
 A count of numbers of resources and duration of agent run and
 config_retrieval
