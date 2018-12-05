@@ -56,6 +56,19 @@ All in units of seconds
 -  last_run - epoch of last puppet run (seconds).
 -  compiled - flag denoting if the catalog compiled (1 or 0).
 
+Authors
+-------
+Steve Traylen <steve.traylen@cern.ch>
+Nacho Barrientos <nacho.barrientos@cern.ch>
+
+Copyright
+---------
+2018 CERN
+
+License
+-------
+Apache-II License
+
 Development notes
 -----------------
 
