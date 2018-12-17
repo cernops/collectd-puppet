@@ -31,7 +31,7 @@ time Collectd polled. This is monitored using a state file located in
 it.
 
 puppet_run
-~~~~~~~~~
+~~~~~~~~~~
 
 A count of numbers of resources and duration of agent run and
 config_retrieval
@@ -55,6 +55,19 @@ All in units of seconds
 
 -  last_run - epoch of last puppet run (seconds).
 -  compiled - flag denoting if the catalog compiled (1 or 0).
+
+Authors
+-------
+Steve Traylen <steve.traylen@cern.ch>
+Nacho Barrientos <nacho.barrientos@cern.ch>
+
+Copyright
+---------
+2018 CERN
+
+License
+-------
+Apache-II License
 
 Development notes
 -----------------
