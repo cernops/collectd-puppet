@@ -11,6 +11,7 @@ deploy:
   provider: pypi
   on:
     tags: true
+    all_branches: true
   user: traylenator
   password:
     secure: xxmjfbzOxu1rqnVSvGiBw+XlJCLcUtTh4k/RhiUQRI6sSwbBYi1jGw7cdIfbZK+W/LLIpDnqprzPGGEWPMl+odWBF+JSf0KvOUJr2OYI5RBx3ojlt8gudDXFi1/Lr0QKgI8urebp+BVRW1Aq3CkKxbPAxAVzScFIJpLFJFbnf91q1BqCK00MMXNC0ei2lkAC80YplkVWmQQHYZcHZE0wvfbrJ4XJhwEkDyQjMf2JRgR7b1DTNSN82VyWFVzP8mW/Gn7g2kjwPBqmtj0Jgm98d0fVjbuM387ScKWNFnS2YMCMvemURjvMsQDxUdmLsw79US+bVFVGPMfveIRa4klhEYBuqB4laO6TY9ufVmfIR83HjN3PK5E7MwezjecoJKgO+hNGO/w70ZhDHGVWNr49L/oPkRv7FSQdjcuH23sOLtbQByG5IbX5v4i3hWDL3CCKB7wC//MdQ/LYgtt3JPdDkEY3yljjPwkleqZXx+I3YNl+6JtlAlf83l1pekygtvqJxqLwoucZ9Qn5bogUmw+KhXDUVJXYdTRhDhs8DnOcUdb50AmnYDSLkaL8JOjnhtJqPzq3a/pjZh3loJ+G0AdKVAAcWXeVNay3wJ3KaySZ26lNKPXvMRYA4v0EuwYM+m/ikAlyOjCajpw9+wNRzxx50Hs1sP88P+ABgZAUsPyUHDk=
