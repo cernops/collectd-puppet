@@ -1,12 +1,8 @@
----
 sudo: false
 language: python
-
 python:
-  - 2.7
-
+- 2.7
 script: /bin/true 'No Tests'
-
 deploy:
   provider: pypi
   on:
@@ -14,4 +10,4 @@ deploy:
     all_branches: true
   user: traylenator
   password:
-    secure: xxmjfbzOxu1rqnVSvGiBw+XlJCLcUtTh4k/RhiUQRI6sSwbBYi1jGw7cdIfbZK+W/LLIpDnqprzPGGEWPMl+odWBF+JSf0KvOUJr2OYI5RBx3ojlt8gudDXFi1/Lr0QKgI8urebp+BVRW1Aq3CkKxbPAxAVzScFIJpLFJFbnf91q1BqCK00MMXNC0ei2lkAC80YplkVWmQQHYZcHZE0wvfbrJ4XJhwEkDyQjMf2JRgR7b1DTNSN82VyWFVzP8mW/Gn7g2kjwPBqmtj0Jgm98d0fVjbuM387ScKWNFnS2YMCMvemURjvMsQDxUdmLsw79US+bVFVGPMfveIRa4klhEYBuqB4laO6TY9ufVmfIR83HjN3PK5E7MwezjecoJKgO+hNGO/w70ZhDHGVWNr49L/oPkRv7FSQdjcuH23sOLtbQByG5IbX5v4i3hWDL3CCKB7wC//MdQ/LYgtt3JPdDkEY3yljjPwkleqZXx+I3YNl+6JtlAlf83l1pekygtvqJxqLwoucZ9Qn5bogUmw+KhXDUVJXYdTRhDhs8DnOcUdb50AmnYDSLkaL8JOjnhtJqPzq3a/pjZh3loJ+G0AdKVAAcWXeVNay3wJ3KaySZ26lNKPXvMRYA4v0EuwYM+m/ikAlyOjCajpw9+wNRzxx50Hs1sP88P+ABgZAUsPyUHDk=
+    secure: QFJ9NhDKWOcJ10n+dt8UFuqT/97sK/IDPspjDpRDjsJEmQmovODoKqhYiN/SBmlKNcy/JceDb3d+8gXP3tktQQbmoV0QKlLZhZoqrnLKydOBc7lIDXZdwLD+YotGShOlD4zWPN5KoMsr9aa9t8KmV21ZcRj2q4W5yB0K9QAiRqtdZ3RwsHxuusDLSNkSgJXnKIfJIXbxBPoqK6YySibvmDNgFDT8puAuzxQsM/lt7btnukU28cWHDKOglg74CKdZ2vmckWAGRUQVoh1zHijpcLqwi+tQaaWe5+AabSI71J/GEngWX3Bo4j6SCX7qf+CPj7hRKo36NeuNhaQSAHuMKRhA+O9MVmDX5YUAmVAs1In30iPtpzxwo1lHGgA0x/aL4mj6QzbOaBiKyv0fQa3yvs/Oe/h2um+gEazqNHHqIqXiZd4lHqrIqLbVZ3BTMWQPPYNgnFI9HRAVQiHnGZ3GbtG//90Iz6wGRgRHpWxn8NRCqnXFqjZ2HkssKMxmPjnOxC4yOZhlqnIaRidS/vQsziVkkxwLecBkY31LJI6ldgMZMv5W/bqFlgME26uxoA57PdOQKl8sYm4MbTi4EVRV1rUHQB/bb+dN21Y/T4MYcaabSznZfUDOTeRXGOMtk0TANH9z16mBfZgA/aSS6S/vFCkRJaLMbtB1utuZ436IMiw=
