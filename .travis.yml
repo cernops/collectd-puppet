@@ -8,5 +8,6 @@ deploy:
   on:
     tags: true
     all_branches: true
-  user: "traylenator"
-  password: "J9fMrg1r2"
+  user: traylenator
+  password:
+    secure: b2BEqk5zPJnXgdNLE9672/uZWl3p2swNQXZ4A6KkGHKhrA0T3m/wMDoqjlH9OM23PyX+l2/qDPXqiPE1wW6S+2n22xpy4i+5kAOWWXJfXBo6PKXkzLEVSFRWc7k3KUn8XYq4fjeqYlYldSEf3OYQMsNemX9DEVXdnG/NPI0iiKaXhu4ULdjM7SwuYZz3cIwbM/CYZjLLCmCBHQfVNNdzdvVH0MJ1wVfKE4ldERmRmKRDcIsV2P/+LIWxLXGsSJhUHalF61IElVGC6f4WnX/37CvVRe1ZKEI2t3Jg45LKiaIoUayawJsunJiyRrmuGPLSv2R8Qp8UbyvfOYW3Bkl1Zx5CnZmCAHTa8bM6CAgdX3dfqR1ixyHxtGadIkbDUInoTvjfejNwkHPa8Lck2GD6/kXaULhp7PjFL48FGDJQRn9eFjL9yRDYhlgi7qdWLhP7/PBkxVP+VHPZ5rIJ3JksDGnm4sniXou26oXVRqtuuzkNaWYvF28Za5gdM4qttu+NDzjDAIXOnYVt26GXDKkUvMBlEuPXFCGh7gH7mr2iO5lbdwOxRQAIvE5oNEISSziHHimVZ4oTXMoZz0RGt0EARsUg1FHHzZkoa5TsHk0LcgbM/EUKl2V4i0IgpYOZr+x5xvdegSDyTrwKjV7j70lITL6+QPlvTMWL1X7KwQyUaoo=
