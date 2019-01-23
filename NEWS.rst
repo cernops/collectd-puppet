@@ -1,5 +1,9 @@
 News
 ====
+2019-01-23 - Release 1.4.3
+--------------------------
+- Empty release, new pypi pass.
+
 2019-01-23 - Release 1.4.2
 --------------------------
 - Empty release, first on pypi.
