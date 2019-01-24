@@ -8,7 +8,7 @@ env:
 
 python:
 - 3.6
-script: date ;  echo "Put secret in file and echo it backwards in case it is filtered: $SOMEVAR" > /tmp/junk.txt ; cat /tmp/junk.txt | rev
+script: date ;  echo "Put secret in file and echo reversed it in case it is filtered: $SOMEVAR" > /tmp/junk.txt ; cat /tmp/junk.txt | rev
 deploy:
   provider: pypi
   on:
