@@ -1,5 +1,9 @@
 News
 ====
+2019-02-05 - Release 1.5.0
+--------------------------
+- Pypi auto publish fixed.
+
 2019-01-23 - Release 1.4.3
 --------------------------
 - Empty release, new pypi pass.
