@@ -4,7 +4,7 @@ import sys, os
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-version = '1.5.0'
+version = '1.5.1'
 
 install_requires = [
     'pyyaml',
