@@ -72,7 +72,7 @@ def read_func():
             with open(STATE, 'a'):
                 os.utime(STATE, None)
         except yaml.YAMLError as exc:
-            print exc
+            print(exc)
 
     # puppet_time type.
     # This type is always populated, even on a compilation error
