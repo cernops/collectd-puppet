@@ -88,8 +88,8 @@ def read_func():
 
     # puppet_run type
     # this type is not populated in certain cases, e.g compilation
-    # error.
-    if 'resources' in data:
+    # error (zero resources).
+    if 'resources' in data and data['resources']['total'] > 0:
         run = [
             data['resources']['total'],
             data['resources']['changed'],
