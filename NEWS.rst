@@ -1,5 +1,9 @@
 News
 ====
+2019-04-25 - Release 1.6.0
+--------------------------
+- Add Puppet5 compat when the catalog does not compile.
+
 2019-02-05 - Release 1.5.1
 --------------------------
 - Python 3 fix
