@@ -78,7 +78,7 @@ def read_func():
     # This type is always populated, even on a compilation error
     times = [
         data['time']['last_run'],
-        1 if 'resources' in data else 0,
+        1 if 'config_retrieval' in data['time'] else 0,
     ]
     val = collectd.Values(plugin='puppet',)
     val.type = 'puppet_time'
@@ -88,8 +88,8 @@ def read_func():
 
     # puppet_run type
     # this type is not populated in certain cases, e.g compilation
-    # error.
-    if 'resources' in data:
+    # error (zero resources).
+    if 'resources' in data and data['resources']['total'] > 0:
         run = [
             data['resources']['total'],
             data['resources']['changed'],
