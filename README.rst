@@ -33,8 +33,8 @@ it.
 These are the values that are currently being dispatched:
 
 * puppet/boolean-compiled (flag denoting if the catalog compiled (1 or 0))
-* puppet/duration-config_retrieval
-* puppet/duration-total_time
+* puppet/seconds-config_retrieval
+* puppet/seconds-total_time
 * puppet/resources-changed
 * puppet/resources-corrective_change
 * puppet/resources-failed

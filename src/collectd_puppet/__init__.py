@@ -93,8 +93,8 @@ def read_func():
             ('restarted', 'resources', data['resources']['restarted']),
             ('scheduled', 'resources', data['resources']['scheduled']),
             ('skipped', 'resources', data['resources']['skipped']),
-            ('total_time', 'duration', data['time']['total']),
-            ('config_retrieval', 'duration', data['time']['config_retrieval']),
+            ('total_time', 'seconds', data['time']['total']),
+            ('config_retrieval', 'seconds', data['time']['config_retrieval']),
         ])
 
     for type_instance, _type, value in sources:
