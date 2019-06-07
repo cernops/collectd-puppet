@@ -1,3 +1,4 @@
 # Types for the collectd puppet plugin
 resources value:GAUGE:0:U
+seconds value:GAUGE:0:U
 boolean value:GAUGE:0:1
