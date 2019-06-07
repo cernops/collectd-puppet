@@ -35,7 +35,7 @@ PATH = "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
 STATE = "/var/lib/collectd/puppet.state"
 MAX_RETENTION = 60*60*6
 
-META = {'schema_version': 1}
+META = {'schema_version': 2}
 
 def config_func(config):
     """ accept configuration from collectd """
@@ -74,40 +74,34 @@ def read_func():
         except yaml.YAMLError as exc:
             print(exc)
 
-    # puppet_time type.
-    # This type is always populated, even on a compilation error
-    times = [
-        data['time']['last_run'],
-        1 if 'config_retrieval' in data['time'] else 0,
+    # This group of values is always populated, even on a compilation error
+    sources = [
+        ('last_run', 'time_ref', data['time']['last_run']),
+        ('compiled', 'boolean', 1 if 'config_retrieval' in data['time'] else 0),
     ]
-    val = collectd.Values(plugin='puppet',)
-    val.type = 'puppet_time'
-    val.meta = META
-    val.values = times
-    val.dispatch(interval=MAX_RETENTION)
 
-    # puppet_run type
-    # this type is not populated in certain cases, e.g compilation
-    # error (zero resources).
+    # This group of values is only populated when the compilation is successful
+    # and the catalog has resources.
     if 'resources' in data and data['resources']['total'] > 0:
-        run = [
-            data['resources']['total'],
-            data['resources']['changed'],
-            data['resources']['corrective_change'],
-            data['resources']['failed'],
-            data['resources']['failed_to_restart'],
-            data['resources']['out_of_sync'],
-            data['resources']['restarted'],
-            data['resources']['scheduled'],
-            data['resources']['skipped'],
-            data['time']['total'],
-            data['time']['config_retrieval'],
-        ]
-        val = collectd.Values(plugin='puppet',)
-        val.type = 'puppet_run'
-        val.meta = META
-        val.values = run
-        val.dispatch(interval=MAX_RETENTION)
+        sources.extend([
+            ('total', 'resources', data['resources']['total']),
+            ('changed', 'resources', data['resources']['changed']),
+            ('corrective_change', 'resources', data['resources']['corrective_change']),
+            ('failed', 'resources', data['resources']['failed']),
+            ('failed_to_restart', 'resources', data['resources']['failed_to_restart']),
+            ('out_of_sync', 'resources', data['resources']['out_of_sync']),
+            ('restarted', 'resources', data['resources']['restarted']),
+            ('scheduled', 'resources', data['resources']['scheduled']),
+            ('skipped', 'resources', data['resources']['skipped']),
+            ('total_time', 'duration', data['time']['total']),
+            ('config_retrieval', 'duration', data['time']['config_retrieval']),
+        ])
+
+    for type_instance, _type, value in sources:
+        collectd.Values(plugin='puppet',
+                        type=_type,
+                        type_instance=type_instance,
+                        meta=META).dispatch(values=[value], interval=MAX_RETENTION)
 
 collectd.register_config(config_func)
 collectd.register_read(read_func)
