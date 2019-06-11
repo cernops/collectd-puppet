@@ -16,7 +16,14 @@ Configuration
      Interactive false
      Import "puppet"
      PATH "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+     MaxRetention 21600
    </Plugin>
+
+The `MaxRetention` setting represents, in seconds, for how long the value of
+the metrics will be retained if there's no fresh data to publish during the
+Collectd loop. Be aware that this setting depends on the global `Timeout`. For
+instance, if you want a retention of 6 hours and the Collectd timeout is set to
+2 then you'll have to halve value and set it to `(6*60*60)/2`.
 
 Generated data
 --------------

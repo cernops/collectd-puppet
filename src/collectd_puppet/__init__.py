@@ -22,6 +22,7 @@ To configure with collectd
   Import "collectd_puppet"
   <Module "collectd_puppet">
     path "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+    MaxRetention 21600
   </Module>
 </Plugin>
 """
@@ -47,6 +48,10 @@ def config_func(config):
             global PATH
             PATH = val
             path_set = True
+        if key == 'maxretention':
+            global MAX_RETENTION
+            MAX_RETENTION = val
+            collectd.info('puppet plugin: Using overridden MaxRetention %s' % MAX_RETENTION)
         else:
             collectd.info('puppet plugin: Unknown config key "%s"' % key)
 
