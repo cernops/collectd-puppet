@@ -16,45 +16,42 @@ Configuration
      Interactive false
      Import "puppet"
      PATH "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+     MaxRetention 21600
    </Plugin>
 
-Collectd Types
+The `MaxRetention` setting represents, in seconds, for how long the value of
+the metrics will be retained if there's no fresh data to publish during the
+Collectd loop. Be aware that this setting depends on the global `Timeout`. For
+instance, if you want a retention of 6 hours and the Collectd timeout is set to
+2 then you'll have to halve value and set it to `(6*60*60)/2`.
+
+Generated data
 --------------
 
 The plugin parses
 ``/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml`` and reports
-two collectd types.
+several single values extracted from there.
 
 It will only send data if there has been a Puppet run after the last
 time Collectd polled. This is monitored using a state file located in
 ``/var/lib/collectd/puppet.state``. To force a data point just delete
 it.
 
-puppet_run
-~~~~~~~~~~
+These are the values that are currently being dispatched:
 
-A count of numbers of resources and duration of agent run and
-config_retrieval
-
--  total
--  changed
--  corrective_change
--  failed
--  failed_to_restart
--  out_of_sync
--  restarted
--  scheduled
--  skipped
--  time
--  config_retrieval
-
-puppet_time
-^^^^^^^^^^^
-
-All in units of seconds
-
--  last_run - epoch of last puppet run (seconds).
--  compiled - flag denoting if the catalog compiled (1 or 0).
+* puppet/boolean-compiled (flag denoting if the catalog compiled (1 or 0))
+* puppet/seconds-config_retrieval
+* puppet/seconds-total_time
+* puppet/resources-changed
+* puppet/resources-corrective_change
+* puppet/resources-failed
+* puppet/resources-failed_to_restart
+* puppet/resources-out_of_sync
+* puppet/resources-restarted
+* puppet/resources-scheduled
+* puppet/resources-skipped
+* puppet/resources-total
+* puppet/time_ref-last_run (epoch of last puppet run (seconds))
 
 Authors
 -------
@@ -72,4 +69,4 @@ Apache-II License
 Development notes
 -----------------
 
-Don't forget to bump the ``schema_version`` if you modify the types.
+Don't forget to bump the ``schema_version`` if you modify the data format.
