@@ -1,5 +1,12 @@
 News
 ====
+2019-06-12 - Release 2.0.0
+--------------------------
+- Flatten all metrics. Now using single value
+  per metric instead of complex user-defined types.
+- New configuration MAX_RETENTION can be set.
+- Data schema versions is updated to 2
+
 2019-04-25 - Release 1.6.0
 --------------------------
 - Add Puppet5 compat when the catalog does not compile.
