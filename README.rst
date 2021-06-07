@@ -53,6 +53,14 @@ These are the values that are currently being dispatched:
 * puppet/resources-total
 * puppet/time_ref-last_run (epoch of last puppet run (seconds))
 
+Distribution
+------------
+
+* `Pypy <https://pypi.org/project/collectd-puppet>`_.
+* RHEL8/CentOS8 packages are available directly from
+  `EPEL <https://fedoraproject.org/wiki/EPEL>`_
+  (`Spec <https://src.fedoraproject.org/rpms/python-collectd_puppet/tree/master>`_).
+
 Authors
 -------
 Steve Traylen <steve.traylen@cern.ch>
