@@ -28,9 +28,14 @@ instance, if you want a retention of 6 hours and the Collectd timeout is set to
 Generated data
 --------------
 
-The plugin parses
-``/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml`` and reports
-several single values extracted from there.
+The plugin parses by default
+``/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml`` and
+reports several single values extracted from there.
+
+Take into account that this path has changed in Puppet7 and becomes
+``/opt/puppetlabs/puppet/public/last_run_summary.yaml`` so adjust your
+configuration accordingly depending on your Puppet version. This
+default will be switched once Puppet6 reaches EOL (expected Feb 2023).
 
 It will only send data if there has been a Puppet run after the last
 time Collectd polled. This is monitored using a state file located in
