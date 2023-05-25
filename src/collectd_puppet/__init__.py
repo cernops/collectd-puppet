@@ -21,7 +21,7 @@ To configure with collectd
   Interactive false
   Import "collectd_puppet"
   <Module "collectd_puppet">
-    path "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+    path "/opt/puppetlabs/puppet/public/last_run_summary.yaml"
     MaxRetention 21600
   </Module>
 </Plugin>
@@ -32,7 +32,7 @@ import time
 import collectd
 import yaml
 
-PATH = "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+PATH = "/opt/puppetlabs/puppet/public/last_run_summary.yaml"
 STATE = "/var/lib/collectd/puppet.state"
 MAX_RETENTION = 60*60*6
 
