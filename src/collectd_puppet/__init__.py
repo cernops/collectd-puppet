@@ -34,6 +34,7 @@ import yaml
 
 PATH = "/opt/puppetlabs/puppet/public/last_run_summary.yaml"
 STATE = "/var/lib/collectd/puppet.state"
+REPORT_ALWAYS = False
 MAX_RETENTION = 60*60*6
 
 META = {'schema_version': 2}
@@ -44,11 +45,15 @@ def config_func(config):
     for node in config.children:
         key = node.key.lower()
         val = node.values[0]
-        if key == 'path':
+        if key == "reportalways":
+            global REPORT_ALWAYS
+            REPORT_ALWAYS = str(val).lower() in ("true", "1", "yes")
+            collectd.info(f'puppet plugin: Overriding ReportAlways option: {REPORT_ALWAYS}')
+        elif key == 'path':
             global PATH
             PATH = val
             path_set = True
-        if key == 'maxretention':
+        elif key == 'maxretention':
             global MAX_RETENTION
             MAX_RETENTION = val
             collectd.info('puppet plugin: Using overridden MaxRetention %s' % MAX_RETENTION)
@@ -62,14 +67,15 @@ def config_func(config):
 
 def read_func():
     """ open yaml file and publish if Puppet has run """
-    try:
-        last_polled = os.stat(STATE).st_mtime
-    except OSError:
-        last_polled = 0
-    last_puppet_run = os.stat(PATH).st_mtime
+    if not REPORT_ALWAYS:
+        try:
+            last_polled = os.stat(STATE).st_mtime
+        except OSError:
+            last_polled = 0
+        last_puppet_run = os.stat(PATH).st_mtime
 
-    if last_polled >= last_puppet_run:
-        return
+        if last_polled >= last_puppet_run:
+            return
 
     with open(PATH, 'r') as stream:
         try:
