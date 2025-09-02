@@ -79,7 +79,7 @@ def read_func():
 
     with open(PATH, 'r') as stream:
         try:
-            data = yaml.load(stream)
+            data = yaml.load(stream, Loader=yaml.Loader)
             with open(STATE, 'a'):
                 os.utime(STATE, None)
         except yaml.YAMLError as exc:
